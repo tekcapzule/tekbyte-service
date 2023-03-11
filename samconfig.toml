@@ -2,11 +2,23 @@ version = 0.1
 [dev]
 [dev.deploy]
 [dev.deploy.parameters]
-stack_name = "devtekbyte"
+stack_name = "dev-tekbyte-service"
 s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-9dnrtuihka7k"
-s3_prefix = "devtekbyte"
+s3_prefix = "dev-capsule-service"
 region = "us-west-2"
 confirm_changeset = true
 capabilities = "CAPABILITY_IAM"
 parameter_overrides = "Stage=\"dev\""
+image_repositories = []
+
+[prod]
+[prod.deploy]
+[prod.deploy.parameters]
+stack_name = "prod-tekbyte-service"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-9dnrtuihka7k"
+s3_prefix = "prod-capsule-service"
+region = "us-west-2"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
+parameter_overrides = "Stage=\"prod\" Environment=\"prod\""
 image_repositories = []
