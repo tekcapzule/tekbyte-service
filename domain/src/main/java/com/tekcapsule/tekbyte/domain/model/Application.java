@@ -9,5 +9,7 @@ import lombok.*;
 @Builder
 @AllArgsConstructor
 @DynamoDBDocument
-public class Application extends TekbyteProperty {
+public class Application {
+    private String title;
+    private String description;
 }

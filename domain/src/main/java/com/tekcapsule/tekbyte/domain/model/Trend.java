@@ -9,5 +9,7 @@ import lombok.*;
 @Builder
 @AllArgsConstructor
 @DynamoDBDocument
-public class Trend extends TekbyteProperty {
+public class Trend {
+    private String title;
+    private String description;
 }

@@ -9,6 +9,8 @@ import lombok.*;
 @Builder
 @AllArgsConstructor
 @DynamoDBDocument
-public class Event extends TekbyteProperty {
+public class Event {
+    private String title;
+    private String description;
 
 }

@@ -9,6 +9,8 @@ import lombok.*;
 @Builder
 @AllArgsConstructor
 @DynamoDBDocument
-public class Concept extends TekbyteProperty {
+public class Concept {
+    private String title;
+    private String description;
 
 }
