@@ -1,7 +1,7 @@
 package com.tekcapsule.tekbyte.application.function.input;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.tekcapsule.tekbyte.domain.model.Category;
+import com.tekcapsule.tekbyte.domain.model.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -11,11 +11,19 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @NoArgsConstructor
 public class CreateInput {
-    private String code;
     private String name;
-    private Category category;
+    private String topicCode;
+    private String category;
     private String summary;
     private String description;
     private String imageUrl;
     private List<String> aliases;
+    private GoldenCircle goldenCircle;
+    private List<Event> timeline;
+    private List<Concept> keyConcepts;
+    private List<Application> applications;
+    private List<Trend> currentTrends;
+    private List<Challenge> challenges;
+    private String didYouKnow;
+    private String wayForward;
 }

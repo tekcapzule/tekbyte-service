@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Slf4j
 @Service
@@ -24,17 +25,28 @@ public class TekbyteServiceImpl implements TekbyteService {
     @Override
     public void create(CreateCommand createCommand) {
 
-        log.info(String.format("Entering create topic service - Topic Code :%s", createCommand.getCode()));
+        log.info(String.format("Entering create tekbyte service - Tekbyte Name :%s", createCommand.getName()));
+        String id = UUID.randomUUID().toString();
 
         Tekbyte tekbyte = Tekbyte.builder()
-                .code(createCommand.getCode())
+                .id(id)
+                .code(getCode(createCommand.getTopicCode(),createCommand.getCategory(),id))
                 .name(createCommand.getName())
                 .summary(createCommand.getSummary())
                 .description(createCommand.getDescription())
                 .imageUrl(createCommand.getImageUrl())
+                .topicCode(createCommand.getTopicCode())
                 .category(createCommand.getCategory())
                 .status("ACTIVE")
                 .aliases(createCommand.getAliases())
+                .goldenCircle(createCommand.getGoldenCircle())
+                .keyConcepts(createCommand.getKeyConcepts())
+                .timeline(createCommand.getTimeline())
+                .wayForward(createCommand.getWayForward())
+                .didYouKnow(createCommand.getDidYouKnow())
+                .applications(createCommand.getApplications())
+                .currentTrends(createCommand.getCurrentTrends())
+                .challenges(createCommand.getChallenges())
                 .build();
 
         tekbyte.setAddedOn(createCommand.getExecOn());
@@ -44,22 +56,36 @@ public class TekbyteServiceImpl implements TekbyteService {
         tekbyteDynamoRepository.save(tekbyte);
     }
 
+    private String getCode(String topicCode, String category, String id) {
+        return topicCode + "-" + category + "-" + id;
+    }
+
     @Override
     public void update(UpdateCommand updateCommand) {
 
-        log.info(String.format("Entering update topic service - Topic Code:%s", updateCommand.getCode()));
+        log.info(String.format("Entering update tekbyte service - Tekbyte id:%s", updateCommand.getId()));
 
         Tekbyte tekbyte = tekbyteDynamoRepository.findBy(updateCommand.getCode());
         if (tekbyte != null) {
             tekbyte.setName(updateCommand.getName());
             tekbyte.setStatus("ACTIVE");
             tekbyte.setSummary(updateCommand.getSummary());
+            tekbyte.setTopicCode(updateCommand.getTopicCode());
             tekbyte.setCategory(updateCommand.getCategory());
+            tekbyte.setCode(getCode(updateCommand.getTopicCode(), updateCommand.getCategory(), updateCommand.getId()));
             tekbyte.setAliases(updateCommand.getAliases());
             tekbyte.setImageUrl(updateCommand.getImageUrl());
             tekbyte.setDescription(updateCommand.getDescription());
             tekbyte.setUpdatedOn(updateCommand.getExecOn());
             tekbyte.setUpdatedBy(updateCommand.getExecBy().getUserId());
+            tekbyte.setKeyConcepts(updateCommand.getKeyConcepts());
+            tekbyte.setGoldenCircle(updateCommand.getGoldenCircle());
+            tekbyte.setTimeline(updateCommand.getEvents());
+            tekbyte.setWayForward(updateCommand.getWayForward());
+            tekbyte.setDidYouKnow(updateCommand.getDidYouKnow());
+            tekbyte.setApplications(updateCommand.getApplications());
+            tekbyte.setCurrentTrends(updateCommand.getCurrentTrends());
+            tekbyte.setChallenges(updateCommand.getChallenges());
             tekbyteDynamoRepository.save(tekbyte);
         }
     }
@@ -67,7 +93,7 @@ public class TekbyteServiceImpl implements TekbyteService {
     @Override
     public void disable(DisableCommand disableCommand) {
 
-        log.info(String.format("Entering disable topic service - Topic Code:%s", disableCommand.getCode()));
+        log.info(String.format("Entering disable tekbyte service - Tekbyte Code:%s", disableCommand.getCode()));
 
         tekbyteDynamoRepository.findBy(disableCommand.getCode());
         Tekbyte tekbyte = tekbyteDynamoRepository.findBy(disableCommand.getCode());
@@ -82,17 +108,31 @@ public class TekbyteServiceImpl implements TekbyteService {
     @Override
     public List<Tekbyte> findAll() {
 
-        log.info("Entering findAll Topic service");
+        log.info("Entering findAll tekbyte service");
 
         return tekbyteDynamoRepository.findAll();
     }
 
     @Override
-    public Tekbyte findBy(String code) {
+    public Tekbyte findBy(String id) {
 
-        log.info(String.format("Entering findBy Topic service - Topic code:%s", code));
+        log.info(String.format("Entering findBy tekbyte service - Tekbyte id:%s", id));
 
-        return tekbyteDynamoRepository.findBy(code);
+        return tekbyteDynamoRepository.findBy(id);
+    }
+
+    @Override
+    public List<Tekbyte> findByTopic(String topicCode) {
+        log.info("Entering findBy topiccode tekbyte service");
+
+        return tekbyteDynamoRepository.findAllByTopicCode(topicCode);
+    }
+
+    @Override
+    public List<Tekbyte> findByCategory(String category) {
+        log.info("Entering findBy category service");
+
+        return tekbyteDynamoRepository.findAllByCategory(category);
     }
 
 
