@@ -25,7 +25,7 @@ public class TekbyteRepositoryImpl implements TekbyteDynamoRepository {
 
     @Override
     public List<Tekbyte> findAll() {
-        String projectionExpression = "topicCode,category,id,title,summary,description,imageUrl";
+        String projectionExpression = "code,topicCode,category,id,title,summary,description,imageUrl";
         return dynamo.scan(Tekbyte.class,new DynamoDBScanExpression().withProjectionExpression(projectionExpression));
     }
 
