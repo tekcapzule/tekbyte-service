@@ -70,7 +70,6 @@ Resources:
   CreateTekbyteFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: C:\Users\vishw\tekbyte-service\application
       FunctionName: !Sub "${Stage}-Tekbyte-CreateTekbyte"
       SnapStart:
         ApplyOn: PublishedVersions
