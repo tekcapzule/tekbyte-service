@@ -29,7 +29,6 @@ public class TekbyteServiceImpl implements TekbyteService {
         String id = UUID.randomUUID().toString();
 
         Tekbyte tekbyte = Tekbyte.builder()
-                .id(id)
                 .code(getCode(createCommand.getTopicCode(),createCommand.getCategory(),id))
                 .name(createCommand.getName())
                 .summary(createCommand.getSummary())
