@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
 @AllArgsConstructor
-@NoArgsConstructor
+@DynamoDBDocument
 public class GoldenCircle {
     @DynamoDBAttribute(attributeName = "why")
     private String why;
