@@ -39,7 +39,7 @@ public class SearchByCategoryFunction implements Function<Message<SearchByCatego
         try {
             SearchByCategoryInput searchByCategoryInput = findByCategoryInputMessage.getPayload();
             log.info(String.format("Entering search by topic Function topics %s", searchByCategoryInput.getCategory()));
-            tekbytes = tekbyteService.findByCategory(searchByCategoryInput.getCategory());
+            tekbytes = tekbyteService.findByCategory(searchByCategoryInput.getTopicCode(), searchByCategoryInput.getCategory());
             responseHeaders = HeaderUtil.populateResponseHeaders(responseHeaders, Stage.valueOf(stage), Outcome.SUCCESS);
         } catch (Exception ex) {
             log.error(ex.getMessage());

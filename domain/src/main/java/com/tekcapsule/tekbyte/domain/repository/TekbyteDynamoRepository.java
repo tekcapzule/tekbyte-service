@@ -9,5 +9,5 @@ public interface TekbyteDynamoRepository extends CrudRepository<Tekbyte, String>
 
     List<Tekbyte> findAllByTopicCode(String topicCode);
 
-    List<Tekbyte> findAllByCategory(String category);
+    List<Tekbyte> findAllByCategory(String category, String topicCode);
 }

@@ -25,8 +25,8 @@ public class TekbyteRepositoryImpl implements TekbyteDynamoRepository {
 
     @Override
     public List<Tekbyte> findAll() {
-
-        return dynamo.scan(Tekbyte.class,new DynamoDBScanExpression());
+        String projectionExpression = "topicCode,category,id,name,summary,description,imageUrl";
+        return dynamo.scan(Tekbyte.class,new DynamoDBScanExpression().withProjectionExpression(projectionExpression));
     }
 
     @Override
@@ -41,11 +41,11 @@ public class TekbyteRepositoryImpl implements TekbyteDynamoRepository {
         expAttributes.put(":topicCode", new AttributeValue().withS(topicCode));
 
         HashMap<String, String> expNames = new HashMap<>();
-        expNames.put("#topicCode", "topicCode");
+        expNames.put("#code", "code");
 
         DynamoDBQueryExpression<Tekbyte> queryExpression = new DynamoDBQueryExpression<Tekbyte>()
                 .withConsistentRead(false)
-                .withKeyConditionExpression("begins_with(#topicCode, :topicCode)")
+                .withKeyConditionExpression("begins_with(#code, :topicCode)")
                 .withExpressionAttributeValues(expAttributes)
                 .withExpressionAttributeNames(expNames);
 
@@ -54,17 +54,18 @@ public class TekbyteRepositoryImpl implements TekbyteDynamoRepository {
     }
 
     @Override
-    public List<Tekbyte> findAllByCategory(String category) {
+    public List<Tekbyte> findAllByCategory(String category, String topicCode) {
 
         HashMap<String, AttributeValue> expAttributes = new HashMap<>();
         expAttributes.put(":category", new AttributeValue().withS(category));
+        expAttributes.put(":topicCode", new AttributeValue().withS(topicCode));
 
         HashMap<String, String> expNames = new HashMap<>();
-        expNames.put("#category", "category");
+        expNames.put("#code", "code");
 
         DynamoDBQueryExpression<Tekbyte> queryExpression = new DynamoDBQueryExpression<Tekbyte>()
                 .withConsistentRead(false)
-                .withKeyConditionExpression("contains(#category, :category)")
+                .withKeyConditionExpression("begins_with(#code, :topicCode) and contains(#code, :category)")
                 .withExpressionAttributeValues(expAttributes)
                 .withExpressionAttributeNames(expNames);
 

@@ -10,4 +10,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class SearchByCategoryInput {
     private String category;
+    private String topicCode;
 }

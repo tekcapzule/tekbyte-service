@@ -20,7 +20,7 @@ public interface TekbyteService {
 
     Tekbyte findBy(String code);
 
-    List<Tekbyte> findByTopic(String topicName);
+    List<Tekbyte> findByTopic(String topicCode);
 
-    List<Tekbyte> findByCategory(String category);
+    List<Tekbyte> findByCategory(String category, String topicCode);
 }

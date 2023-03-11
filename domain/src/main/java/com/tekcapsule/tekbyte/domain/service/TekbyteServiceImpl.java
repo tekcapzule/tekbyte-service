@@ -129,10 +129,10 @@ public class TekbyteServiceImpl implements TekbyteService {
     }
 
     @Override
-    public List<Tekbyte> findByCategory(String category) {
+    public List<Tekbyte> findByCategory(String category, String topicCode) {
         log.info("Entering findBy category service");
 
-        return tekbyteDynamoRepository.findAllByCategory(category);
+        return tekbyteDynamoRepository.findAllByCategory(category, topicCode);
     }
 
 
