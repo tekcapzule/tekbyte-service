@@ -11,6 +11,5 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 @AllArgsConstructor
 @Builder
-public class Event extends TekbyteProperty {
-
+public class Trend extends TekbyteProperty {
 }

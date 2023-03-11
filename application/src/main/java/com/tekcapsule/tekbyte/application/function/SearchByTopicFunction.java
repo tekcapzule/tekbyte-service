@@ -4,7 +4,7 @@ import com.tekcapsule.core.utils.HeaderUtil;
 import com.tekcapsule.core.utils.Outcome;
 import com.tekcapsule.core.utils.Stage;
 import com.tekcapsule.tekbyte.application.config.AppConfig;
-import com.tekcapsule.tekbyte.application.function.input.GetInput;
+import com.tekcapsule.tekbyte.application.function.input.SearchByTopicInput;
 import com.tekcapsule.tekbyte.domain.model.Tekbyte;
 import com.tekcapsule.tekbyte.domain.service.TekbyteService;
 import lombok.extern.slf4j.Slf4j;
@@ -12,46 +12,39 @@ import org.springframework.messaging.Message;
 import org.springframework.messaging.support.GenericMessage;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 
 @Component
 @Slf4j
-public class GetFunction implements Function<Message<GetInput>, Message<Tekbyte>> {
+public class SearchByTopicFunction implements Function<Message<SearchByTopicInput>, Message<List<Tekbyte>>> {
 
     private final TekbyteService tekbyteService;
 
     private final AppConfig appConfig;
 
-    public GetFunction(final TekbyteService tekbyteService, final AppConfig appConfig) {
-        this.tekbyteService = tekbyteService;
+    public SearchByTopicFunction(final TekbyteService capsuleService, final AppConfig appConfig) {
+        this.tekbyteService = capsuleService;
         this.appConfig = appConfig;
     }
 
-
     @Override
-    public Message<Tekbyte> apply(Message<GetInput> getInputMessage) {
-
+    public Message<List<Tekbyte>> apply(Message<SearchByTopicInput> findByTopicInputMessage) {
         Map<String, Object> responseHeaders = new HashMap<>();
-        Tekbyte tekbyte = new Tekbyte();
-
+        List<Tekbyte> tekbytes =new ArrayList<>();
         String stage = appConfig.getStage().toUpperCase();
-
         try {
-            GetInput getInput = getInputMessage.getPayload();
-            log.info(String.format("Entering get tekbyte Function -Tekbyte Code:%s", getInput.getCode()));
-            tekbyte = tekbyteService.findBy(getInput.getCode());
-            if (tekbyte == null) {
-                responseHeaders = HeaderUtil.populateResponseHeaders(responseHeaders, Stage.valueOf(stage), Outcome.NOT_FOUND);
-                tekbyte = Tekbyte.builder().build();
-            } else {
-                responseHeaders = HeaderUtil.populateResponseHeaders(responseHeaders, Stage.valueOf(stage), Outcome.SUCCESS);
-            }
+            SearchByTopicInput searchByTopicInput = findByTopicInputMessage.getPayload();
+            log.info(String.format("Entering search by topic Function topics %s", searchByTopicInput.getTekbyteTopic()));
+            tekbytes = tekbyteService.findByTopic(searchByTopicInput.getTekbyteTopic());
+            responseHeaders = HeaderUtil.populateResponseHeaders(responseHeaders, Stage.valueOf(stage), Outcome.SUCCESS);
         } catch (Exception ex) {
             log.error(ex.getMessage());
             responseHeaders = HeaderUtil.populateResponseHeaders(responseHeaders, Stage.valueOf(stage), Outcome.ERROR);
         }
-        return new GenericMessage<>(tekbyte, responseHeaders);
+        return new GenericMessage(tekbytes, responseHeaders);
     }
 }

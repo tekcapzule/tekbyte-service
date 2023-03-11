@@ -13,7 +13,7 @@
 
 <div align="center">
   <img src="https://user-images.githubusercontent.com/9839481/209770761-99fd940f-3c75-407b-a339-9fd2cd2c5b7f.svg">
-  <h3 align="center">Topic Service</h3>
+  <h3 align="center">Tekbyte Service</h3>
   <p align="center">
     A set of lambda functions to manage TekBytes in TekCapsule
     <br />

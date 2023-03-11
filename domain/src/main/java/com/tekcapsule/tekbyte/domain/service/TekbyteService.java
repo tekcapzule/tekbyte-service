@@ -19,4 +19,8 @@ public interface TekbyteService {
     List<Tekbyte> findAll();
 
     Tekbyte findBy(String code);
+
+    List<Tekbyte> findByTopic(String topicCode);
+
+    List<Tekbyte> findByCategory(String category, String topicCode);
 }
