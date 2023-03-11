@@ -2,10 +2,10 @@
 <a name="readme-top"></a>
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Main Branch](https://github.com/tekcapsule/tekbyte-service/actions/workflows/cicd.yml/badge.svg)](https://github.com/tekcapsule/tekbyte-service/actions/workflows/cicd.yml) 
-[![SonarCloud Bugs](https://sonarcloud.io/api/project_badges/measure?project=tekcapsule_topic-service&metric=bugs)](https://sonarcloud.io/project/overview?id=tekcapsule_topic-service)
-[![SonarCloud Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=tekcapsule_topic-service&metric=vulnerabilities)](https://sonarcloud.io/project/overview?id=tekcapsule_topic-service)
-[![SonarCloud Code Smell](https://sonarcloud.io/api/project_badges/measure?project=tekcapsule_topic-service&metric=code_smells)](https://sonarcloud.io/project/overview?id=tekcapsule_topic-service)
-[![SonarCloud Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=tekcapsule_topic-service&metric=ncloc)](https://sonarcloud.io/project/overview?id=tekcapsule_topic-service)
+[![SonarCloud Bugs](https://sonarcloud.io/api/project_badges/measure?project=tekcapsule_topic-service&metric=bugs)](https://sonarcloud.io/project/overview?id=tekcapsule_tekbyte-service)
+[![SonarCloud Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=tekcapsule_topic-service&metric=vulnerabilities)](https://sonarcloud.io/project/overview?id=tekcapsule_tekbyte-service)
+[![SonarCloud Code Smell](https://sonarcloud.io/api/project_badges/measure?project=tekcapsule_topic-service&metric=code_smells)](https://sonarcloud.io/project/overview?id=tekcapsule_tekbyte-service)
+[![SonarCloud Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=tekcapsule_topic-service&metric=ncloc)](https://sonarcloud.io/project/overview?id=tekcapsule_tekbyte-service)
 [![Github all releases](https://img.shields.io/github/downloads/tekcapsule/tekbyte-service/total.svg)](https://GitHub.com/tekcapsule/tekbyte-service/releases/)
 
 
@@ -23,8 +23,8 @@
   </p>
 </div>
 <div align="center">
-  
-  <a href="https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=389065421&machine=standardLinux32gb&location=SouthEastAsia">![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)</a>
+
+  <a href="https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=609752663&machine=basicLinux32gb&location=SouthEastAsia">![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)</a>
 
 </div>
 
