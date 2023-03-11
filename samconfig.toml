@@ -3,8 +3,8 @@ version = 0.1
 [dev.deploy]
 [dev.deploy.parameters]
 stack_name = "dev-tekbyte-service"
-s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-9dnrtuihka7k"
-s3_prefix = "dev-capsule-service"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-1bmpga5thxtj4"
+s3_prefix = "dev-tekbyte-service"
 region = "us-west-2"
 confirm_changeset = true
 capabilities = "CAPABILITY_IAM"
@@ -15,8 +15,8 @@ image_repositories = []
 [prod.deploy]
 [prod.deploy.parameters]
 stack_name = "prod-tekbyte-service"
-s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-9dnrtuihka7k"
-s3_prefix = "prod-capsule-service"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-1bmpga5thxtj4"
+s3_prefix = "prod-tekbyte-service"
 region = "us-west-2"
 confirm_changeset = true
 capabilities = "CAPABILITY_IAM"
