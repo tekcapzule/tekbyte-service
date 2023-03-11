@@ -8,6 +8,7 @@ import lombok.*;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
 @AllArgsConstructor
+@NoArgsConstructor
 @DynamoDBDocument
 public class Event {
     private String title;
