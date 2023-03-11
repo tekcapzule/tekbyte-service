@@ -25,12 +25,12 @@ public class TekbyteServiceImpl implements TekbyteService {
     @Override
     public void create(CreateCommand createCommand) {
 
-        log.info(String.format("Entering create tekbyte service - Tekbyte Name :%s", createCommand.getName()));
+        log.info(String.format("Entering create tekbyte service - Tekbyte Name :%s", createCommand.getTitle()));
         String id = UUID.randomUUID().toString();
 
         Tekbyte tekbyte = Tekbyte.builder()
                 .code(getCode(createCommand.getTopicCode(),createCommand.getCategory(),id))
-                .name(createCommand.getName())
+                .title(createCommand.getTitle())
                 .summary(createCommand.getSummary())
                 .description(createCommand.getDescription())
                 .imageUrl(createCommand.getImageUrl())
@@ -62,16 +62,13 @@ public class TekbyteServiceImpl implements TekbyteService {
     @Override
     public void update(UpdateCommand updateCommand) {
 
-        log.info(String.format("Entering update tekbyte service - Tekbyte id:%s", updateCommand.getId()));
+        log.info(String.format("Entering update tekbyte service - Tekbyte id:%s", updateCommand.getCode()));
 
         Tekbyte tekbyte = tekbyteDynamoRepository.findBy(updateCommand.getCode());
         if (tekbyte != null) {
-            tekbyte.setName(updateCommand.getName());
+            tekbyte.setTitle(updateCommand.getTitle());
             tekbyte.setStatus("ACTIVE");
             tekbyte.setSummary(updateCommand.getSummary());
-            tekbyte.setTopicCode(updateCommand.getTopicCode());
-            tekbyte.setCategory(updateCommand.getCategory());
-            tekbyte.setCode(getCode(updateCommand.getTopicCode(), updateCommand.getCategory(), updateCommand.getId()));
             tekbyte.setAliases(updateCommand.getAliases());
             tekbyte.setImageUrl(updateCommand.getImageUrl());
             tekbyte.setDescription(updateCommand.getDescription());

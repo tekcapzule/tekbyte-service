@@ -12,12 +12,9 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
 public class UpdateCommand extends Command {
-    private String id;
     private String code;
-    private String name;
+    private String title;
     private String summary;
-    private String topicCode;
-    private String category;
     private String description;
     private String imageUrl;
     private List<String> aliases;

@@ -12,9 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 public class UpdateInput {
     private String code;
-    private String topicCode;
-    private String category;
-    private String name;
+    private String title;
     private String summary;
     private String description;
     private String imageUrl;

@@ -1,7 +1,6 @@
 package com.tekcapsule.tekbyte.application.function;
 
 import com.tekcapsule.core.domain.Origin;
-import com.tekcapsule.core.domain.SourceSystem;
 import com.tekcapsule.core.utils.HeaderUtil;
 import com.tekcapsule.core.utils.Outcome;
 import com.tekcapsule.core.utils.PayloadUtil;
@@ -42,9 +41,8 @@ public class CreateFunction implements Function<Message<CreateInput>, Message<Vo
 
         try {
             CreateInput createInput = createInputMessage.getPayload();
-            log.info(String.format("Entering create tekbyte Function - Tekbyte name:%s", createInput.getName()));
+            log.info(String.format("Entering create tekbyte Function - Tekbyte name:%s", createInput.getTitle()));
             Origin origin = HeaderUtil.buildOriginFromHeaders(createInputMessage.getHeaders());
-         //   Origin origin = Origin.builder().channel(SourceSystem.WEB_CLIENT).userId("haritha.peryala@gmail.com").build();
             CreateCommand createCommand = InputOutputMapper.buildCreateCommandFromCreateInput.apply(createInput, origin);
             tekbyteService.create(createCommand);
             responseHeaders = HeaderUtil.populateResponseHeaders(responseHeaders, Stage.valueOf(stage), Outcome.SUCCESS);

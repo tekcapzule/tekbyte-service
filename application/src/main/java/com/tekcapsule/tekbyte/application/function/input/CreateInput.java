@@ -11,7 +11,7 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @NoArgsConstructor
 public class CreateInput {
-    private String name;
+    private String title;
     private String topicCode;
     private String category;
     private String summary;

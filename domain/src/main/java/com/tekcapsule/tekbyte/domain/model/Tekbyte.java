@@ -19,8 +19,8 @@ import java.util.List;
 public class Tekbyte extends BaseDomainEntity implements AggregateRoot {
     @DynamoDBHashKey(attributeName="code")
     private String code;
-    @DynamoDBAttribute(attributeName="name")
-    private String name;
+    @DynamoDBAttribute(attributeName="title")
+    private String title;
     @DynamoDBAttribute(attributeName="topicCode")
     private String topicCode;
     @DynamoDBAttribute(attributeName="category")
