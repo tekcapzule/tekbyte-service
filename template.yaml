@@ -26,7 +26,7 @@ Globals:
       Variables:
         TABLE: !Ref TekbyteTable
         APPLICATION_ENVIRONMENT: !Ref Stage
-        CLOUD_REGION: US_West_2
+        CLOUD_REGION: us-east-1
         MAIN_CLASS: com.tekcapsule.tekbyte.application.TekbyteApplication
         JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
 
@@ -210,6 +210,27 @@ Resources:
           Type: Api
           Properties:
             Path: tekbyte/searchByCategory
+            Method: post
+            RestApiId:
+              Ref: TekbyteApi
+
+  GetTekbytesCountFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub "${Stage}-Tekbyte-GetTekbytesCount"
+      SnapStart:
+        ApplyOn: PublishedVersions
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref TekbyteTable
+      Environment:
+        Variables:
+          SPRING_CLOUD_FUNCTION_DEFINITION: getCountFunction
+      Events:
+        ApiEvent:
+          Type: Api
+          Properties:
+            Path: tekbyte/getCount
             Method: post
             RestApiId:
               Ref: TekbyteApi

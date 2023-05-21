@@ -131,5 +131,11 @@ public class TekbyteServiceImpl implements TekbyteService {
         return tekbyteDynamoRepository.findAllByCategory(category, topicCode);
     }
 
+    @Override
+    public int getAllTekbytesCount() {
+        log.info("Entering get all Tekbytes count service");
+        return tekbyteDynamoRepository.getAllTekbytesCount();
+    }
+
 
 }
