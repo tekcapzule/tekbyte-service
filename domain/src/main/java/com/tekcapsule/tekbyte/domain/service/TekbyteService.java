@@ -23,4 +23,6 @@ public interface TekbyteService {
     List<Tekbyte> findByTopic(String topicCode);
 
     List<Tekbyte> findByCategory(String category, String topicCode);
+
+    int getAllTekbytesCount();
 }
