@@ -21,8 +21,8 @@ public class UpdateInput {
     private List<TekbyteProperty> timeLines;
     private List<Concept> keyConcepts;
     private List<Application> applications;
-    private List<Trend> currentTrends;
-    private List<Challenge> challenges;
     private String didYouKnow;
     private String wayForward;
+
+    private String illustrationUrl;
 }

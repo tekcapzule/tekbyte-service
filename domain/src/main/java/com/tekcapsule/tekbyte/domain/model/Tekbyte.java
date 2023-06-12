@@ -33,6 +33,9 @@ public class Tekbyte extends BaseDomainEntity implements AggregateRoot {
     private String description;
     @DynamoDBAttribute(attributeName = "imageUrl")
     private String imageUrl;
+
+    @DynamoDBAttribute(attributeName = "illustrationUrl")
+    private String illustrationUrl;
     @DynamoDBAttribute(attributeName = "aliases")
     private List<String> aliases;
     @DynamoDBAttribute(attributeName="status")
@@ -45,13 +48,10 @@ public class Tekbyte extends BaseDomainEntity implements AggregateRoot {
     private List<Event> timeline;
     @DynamoDBAttribute(attributeName="applications")
     private List<Application> applications;
-    @DynamoDBAttribute(attributeName="currentTrends")
-    private List<Trend> currentTrends;
-    @DynamoDBAttribute(attributeName="challenges")
-    private List<Challenge> challenges;
     @DynamoDBAttribute(attributeName="didYouKnow")
     private String didYouKnow;
     @DynamoDBAttribute(attributeName="wayForward")
     private String wayForward;
+
 
 }
