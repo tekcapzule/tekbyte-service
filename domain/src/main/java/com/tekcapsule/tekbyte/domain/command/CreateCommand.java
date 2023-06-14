@@ -18,13 +18,13 @@ public class CreateCommand extends Command {
     private String category;
     private String description;
     private String imageUrl;
+
+    private String illustrationUrl;
     private List<String> aliases;
     private GoldenCircle goldenCircle;
     private List<Event> timeline;
     private List<Concept> keyConcepts;
     private List<Application> applications;
-    private List<Trend> currentTrends;
-    private List<Challenge> challenges;
     private String didYouKnow;
     private String wayForward;
 }

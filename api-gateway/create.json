@@ -4,6 +4,7 @@
   "category": "EMERGING_TECH",
   "status": "Active",
   "imageUrl": "http://tekcapsule-web-dev.s3-website.us-east-2.amazonaws.com/assets/images/card-4.png",
+  "illustrationUrl": "http://tekcapsule-web-dev.s3-website.us-east-2.amazonaws.com/assets/images/card-4.png",
   "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi. sed quia uuntur magni dolores eos qui ratione voluptatem sequi.",
   "didYouKnow": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi. sed quia uuntur magni dolores eos qui ratione voluptatem sequi.",
   "wayForward": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi. sed quia uuntur magni dolores eos qui ratione voluptatem sequi.",
@@ -30,26 +31,6 @@
     {
       "title": "app2",
       "description": "app description4"
-    }
-  ],
-  "currentTrends": [
-    {
-      "title": "trends1",
-      "description": "trends description3"
-    },
-    {
-      "title": "trends2",
-      "description": "trends description4"
-    }
-  ],
-  "challenges": [
-    {
-      "title": "challenges1",
-      "description": "challenges description3"
-    },
-    {
-      "title": "challenges2",
-      "description": "challenges description4"
     }
   ],
   "timeline": [
