@@ -116,20 +116,6 @@ public class TekbyteServiceImpl implements TekbyteService {
     }
 
     @Override
-    public List<Tekbyte> findByTopic(String topicCode) {
-        log.info("Entering findBy topiccode tekbyte service");
-
-        return tekbyteDynamoRepository.findAllByTopicCode(topicCode);
-    }
-
-    @Override
-    public List<Tekbyte> findByCategory(String category, String topicCode) {
-        log.info("Entering findBy category service");
-
-        return tekbyteDynamoRepository.findAllByCategory(category, topicCode);
-    }
-
-    @Override
     public int getAllTekbytesCount() {
         log.info("Entering get all Tekbytes count service");
         return tekbyteDynamoRepository.getAllTekbytesCount();
