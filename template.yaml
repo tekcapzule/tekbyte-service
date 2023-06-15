@@ -172,48 +172,6 @@ Resources:
             RestApiId:
               Ref: TekbyteApi
 
-  SearchTekbyteByTopicFunction:
-    Type: AWS::Serverless::Function
-    Properties:
-      FunctionName: !Sub "${Stage}-Tekbyte-SearchTekbyteByTopic"
-      SnapStart:
-        ApplyOn: PublishedVersions
-      Policies:
-        - DynamoDBCrudPolicy:
-            TableName: !Ref TekbyteTable
-      Environment:
-        Variables:
-          SPRING_CLOUD_FUNCTION_DEFINITION: searchByTopicFunction
-      Events:
-        ApiEvent:
-          Type: Api
-          Properties:
-            Path: tekbyte/searchByTopic
-            Method: post
-            RestApiId:
-              Ref: TekbyteApi
-
-  SearchTekbyteByCategoryFunction:
-    Type: AWS::Serverless::Function
-    Properties:
-      FunctionName: !Sub "${Stage}-Tekbyte-SearchTekbyteByCategory"
-      SnapStart:
-        ApplyOn: PublishedVersions
-      Policies:
-        - DynamoDBCrudPolicy:
-            TableName: !Ref TekbyteTable
-      Environment:
-        Variables:
-          SPRING_CLOUD_FUNCTION_DEFINITION: searchByCategoryFunction
-      Events:
-        ApiEvent:
-          Type: Api
-          Properties:
-            Path: tekbyte/searchByCategory
-            Method: post
-            RestApiId:
-              Ref: TekbyteApi
-
   GetTekbytesCountFunction:
     Type: AWS::Serverless::Function
     Properties:
