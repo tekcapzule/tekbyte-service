@@ -52,6 +52,15 @@ public class Tekbyte extends BaseDomainEntity implements AggregateRoot {
     private String didYouKnow;
     @DynamoDBAttribute(attributeName="wayForward")
     private String wayForward;
+    @DynamoDBAttribute(attributeName = "recommendations")
+    private int recommendations;
+    @DynamoDBAttribute(attributeName = "prizingModel")
+    @DynamoDBTypeConvertedEnum
+    private PrizingModel prizingModel;
+    @DynamoDBAttribute(attributeName = "promoted")
+    private boolean promoted;
+    @DynamoDBAttribute(attributeName = "featured")
+    private boolean featured;
 
 
 }

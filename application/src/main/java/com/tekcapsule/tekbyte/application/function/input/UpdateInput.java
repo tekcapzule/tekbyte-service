@@ -23,6 +23,9 @@ public class UpdateInput {
     private List<Application> applications;
     private String didYouKnow;
     private String wayForward;
-
     private String illustrationUrl;
+    private int recommendations;
+    private PrizingModel prizingModel;
+    private boolean promoted;
+    private boolean featured;
 }

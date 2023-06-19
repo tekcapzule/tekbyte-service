@@ -27,4 +27,8 @@ public class CreateCommand extends Command {
     private List<Application> applications;
     private String didYouKnow;
     private String wayForward;
+    private int recommendations;
+    private PrizingModel prizingModel;
+    private boolean promoted;
+    private boolean featured;
 }

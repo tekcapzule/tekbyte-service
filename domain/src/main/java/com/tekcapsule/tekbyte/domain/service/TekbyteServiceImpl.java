@@ -45,6 +45,10 @@ public class TekbyteServiceImpl implements TekbyteService {
                 .didYouKnow(createCommand.getDidYouKnow())
                 .applications(createCommand.getApplications())
                 .illustrationUrl(createCommand.getIllustrationUrl())
+                .recommendations(createCommand.getRecommendations())
+                .prizingModel(createCommand.getPrizingModel())
+                .featured(createCommand.isFeatured())
+                .promoted(createCommand.isPromoted())
                 .build();
 
         tekbyte.setAddedOn(createCommand.getExecOn());
@@ -80,6 +84,11 @@ public class TekbyteServiceImpl implements TekbyteService {
             tekbyte.setDidYouKnow(updateCommand.getDidYouKnow());
             tekbyte.setApplications(updateCommand.getApplications());
             tekbyte.setIllustrationUrl(updateCommand.getIllustrationUrl());
+            tekbyte.setRecommendations(updateCommand.getRecommendations());
+            tekbyte.setPromoted(updateCommand.isPromoted());
+            tekbyte.setFeatured(updateCommand.isFeatured());
+            tekbyte.setPrizingModel(updateCommand.getPrizingModel());
+
             tekbyteDynamoRepository.save(tekbyte);
         }
     }
