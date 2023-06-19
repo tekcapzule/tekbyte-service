@@ -3,6 +3,7 @@ package com.tekcapsule.tekbyte.domain.command;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.tekcapsule.core.domain.Command;
 import com.tekcapsule.tekbyte.domain.model.Category;
+import com.tekcapsule.tekbyte.domain.model.PrizingModel;
 import lombok.Builder;
 import lombok.Data;
 
@@ -19,4 +20,8 @@ public class CreateCommand extends Command {
     private String description;
     private String imageUrl;
     private List<String> aliases;
+    private int recommendations;
+    private PrizingModel prizingModel;
+    private boolean promoted;
+    private boolean featured;
 }

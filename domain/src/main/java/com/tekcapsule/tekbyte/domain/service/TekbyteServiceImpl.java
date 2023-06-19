@@ -35,6 +35,10 @@ public class TekbyteServiceImpl implements TekbyteService {
                 .category(createCommand.getCategory())
                 .status("ACTIVE")
                 .aliases(createCommand.getAliases())
+                .recommendations(createCommand.getRecommendations())
+                .promoted(createCommand.isPromoted())
+                .featured(createCommand.isFeatured())
+                .prizingModel(createCommand.getPrizingModel())
                 .build();
 
         tekbyte.setAddedOn(createCommand.getExecOn());
@@ -60,6 +64,10 @@ public class TekbyteServiceImpl implements TekbyteService {
             tekbyte.setDescription(updateCommand.getDescription());
             tekbyte.setUpdatedOn(updateCommand.getExecOn());
             tekbyte.setUpdatedBy(updateCommand.getExecBy().getUserId());
+            tekbyte.setRecommendations(updateCommand.getRecommendations());
+            tekbyte.setPromoted(updateCommand.isPromoted());
+            tekbyte.setFeatured(updateCommand.isFeatured());
+            tekbyte.setPrizingModel(updateCommand.getPrizingModel());
             tekbyteDynamoRepository.save(tekbyte);
         }
     }
