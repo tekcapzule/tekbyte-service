@@ -88,6 +88,7 @@ public class TekbyteServiceImpl implements TekbyteService {
             tekbyte.setPromoted(updateCommand.isPromoted());
             tekbyte.setFeatured(updateCommand.isFeatured());
             tekbyte.setPrizingModel(updateCommand.getPrizingModel());
+            tekbyte.setTimeline(updateCommand.getTimeline());
 
             tekbyteDynamoRepository.save(tekbyte);
         }
