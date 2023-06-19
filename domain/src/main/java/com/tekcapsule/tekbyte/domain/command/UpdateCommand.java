@@ -30,5 +30,6 @@ public class UpdateCommand extends Command {
     private PrizingModel prizingModel;
     private boolean promoted;
     private boolean featured;
+    private List<Event> timeline;
 
 }
