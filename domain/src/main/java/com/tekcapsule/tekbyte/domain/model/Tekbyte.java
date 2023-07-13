@@ -34,8 +34,8 @@ public class Tekbyte extends BaseDomainEntity implements AggregateRoot {
     @DynamoDBAttribute(attributeName = "imageUrl")
     private String imageUrl;
 
-    @DynamoDBAttribute(attributeName = "illustrationUrl")
-    private String illustrationUrl;
+    @DynamoDBAttribute(attributeName = "resourceUrl")
+    private String resourceUrl;
     @DynamoDBAttribute(attributeName = "aliases")
     private List<String> aliases;
     @DynamoDBAttribute(attributeName="status")

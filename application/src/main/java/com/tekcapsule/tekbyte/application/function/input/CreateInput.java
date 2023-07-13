@@ -24,7 +24,7 @@ public class CreateInput {
     private List<Application> applications;
     private String didYouKnow;
     private String wayForward;
-    private String illustrationUrl;
+    private String resourceUrl;
     private int recommendations;
     private PrizingModel prizingModel;
     private boolean promoted;

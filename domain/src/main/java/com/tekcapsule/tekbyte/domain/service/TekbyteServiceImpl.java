@@ -44,7 +44,7 @@ public class TekbyteServiceImpl implements TekbyteService {
                 .wayForward(createCommand.getWayForward())
                 .didYouKnow(createCommand.getDidYouKnow())
                 .applications(createCommand.getApplications())
-                .illustrationUrl(createCommand.getIllustrationUrl())
+                .resourceUrl(createCommand.getResourceUrl())
                 .recommendations(createCommand.getRecommendations())
                 .prizingModel(createCommand.getPrizingModel())
                 .featured(createCommand.isFeatured())
@@ -83,7 +83,7 @@ public class TekbyteServiceImpl implements TekbyteService {
             tekbyte.setWayForward(updateCommand.getWayForward());
             tekbyte.setDidYouKnow(updateCommand.getDidYouKnow());
             tekbyte.setApplications(updateCommand.getApplications());
-            tekbyte.setIllustrationUrl(updateCommand.getIllustrationUrl());
+            tekbyte.setResourceUrl(updateCommand.getResourceUrl());
             tekbyte.setRecommendations(updateCommand.getRecommendations());
             tekbyte.setPromoted(updateCommand.isPromoted());
             tekbyte.setFeatured(updateCommand.isFeatured());
