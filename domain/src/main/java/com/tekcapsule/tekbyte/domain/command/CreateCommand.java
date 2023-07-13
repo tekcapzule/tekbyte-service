@@ -19,7 +19,7 @@ public class CreateCommand extends Command {
     private String description;
     private String imageUrl;
 
-    private String illustrationUrl;
+    private String resourceUrl;
     private List<String> aliases;
     private GoldenCircle goldenCircle;
     private List<Event> timeline;
