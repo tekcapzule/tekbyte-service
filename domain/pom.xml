@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.tekcapsule</groupId>
     <artifactId>tekbyte-domain</artifactId>
-    <version>2.2.7</version>
+    <version>2.2.8</version>
     <name>TekByte Domain</name>
     <description>TekByte Domain</description>
     <properties>
