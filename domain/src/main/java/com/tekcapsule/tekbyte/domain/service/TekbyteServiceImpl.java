@@ -2,6 +2,7 @@ package com.tekcapsule.tekbyte.domain.service;
 
 import com.tekcapsule.tekbyte.domain.command.CreateCommand;
 import com.tekcapsule.tekbyte.domain.command.DisableCommand;
+import com.tekcapsule.tekbyte.domain.command.RecommendCommand;
 import com.tekcapsule.tekbyte.domain.command.UpdateCommand;
 import com.tekcapsule.tekbyte.domain.model.Tekbyte;
 import com.tekcapsule.tekbyte.domain.repository.TekbyteDynamoRepository;
@@ -105,6 +106,23 @@ public class TekbyteServiceImpl implements TekbyteService {
             tekbyte.setStatus("INACTIVE");
             tekbyte.setUpdatedOn(disableCommand.getExecOn());
             tekbyte.setUpdatedBy(disableCommand.getExecBy().getUserId());
+            tekbyteDynamoRepository.save(tekbyte);
+        }
+    }
+
+    @Override
+    public void recommend(RecommendCommand recommendCommand) {
+        log.info(String.format("Entering recommend tekbyte service -  tekbyte Id:%s", recommendCommand.getTekbyteId()));
+
+        Tekbyte tekbyte = tekbyteDynamoRepository.findBy(recommendCommand.getTekbyteId());
+        if (tekbyte != null) {
+            Integer recommendationsCount = tekbyte.getRecommendations();
+            recommendationsCount += 1;
+            tekbyte.setRecommendations(recommendationsCount);
+
+            tekbyte.setUpdatedOn(recommendCommand.getExecOn());
+            tekbyte.setUpdatedBy(recommendCommand.getExecBy().getUserId());
+
             tekbyteDynamoRepository.save(tekbyte);
         }
     }

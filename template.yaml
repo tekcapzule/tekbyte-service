@@ -64,6 +64,26 @@ Resources:
         ReadCapacityUnits: 1
         WriteCapacityUnits: 1
 
+  RecommendTekbyteFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub "${Stage}-Tekbyte-RecommendTekbyte"
+      SnapStart:
+        ApplyOn: PublishedVersions
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref TekbyteTable
+      Environment:
+        Variables:
+          SPRING_CLOUD_FUNCTION_DEFINITION: recommendFunction
+      Events:
+        ApiEvent:
+          Type: Api
+          Properties:
+            Path: tekbyte/recommend
+            Method: post
+            RestApiId:
+              Ref: TekbyteApi
 
   # Setup Lambda Functions
 

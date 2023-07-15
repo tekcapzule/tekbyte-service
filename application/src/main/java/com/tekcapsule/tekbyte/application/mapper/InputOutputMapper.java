@@ -5,9 +5,11 @@ import com.tekcapsule.core.domain.ExecBy;
 import com.tekcapsule.core.domain.Origin;
 import com.tekcapsule.tekbyte.application.function.input.CreateInput;
 import com.tekcapsule.tekbyte.application.function.input.DisableInput;
+import com.tekcapsule.tekbyte.application.function.input.RecommendInput;
 import com.tekcapsule.tekbyte.application.function.input.UpdateInput;
 import com.tekcapsule.tekbyte.domain.command.CreateCommand;
 import com.tekcapsule.tekbyte.domain.command.DisableCommand;
+import com.tekcapsule.tekbyte.domain.command.RecommendCommand;
 import com.tekcapsule.tekbyte.domain.command.UpdateCommand;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
@@ -49,6 +51,13 @@ public final class InputOutputMapper {
         BeanUtils.copyProperties(disableInput, disableCommand);
         addOrigin.apply(disableCommand, origin);
         return disableCommand;
+    };
+
+    public static final BiFunction<RecommendInput, Origin, RecommendCommand> buildRecommendCommandFromRecommendInput = (recommendInput, origin) -> {
+        RecommendCommand recommendCommand =  RecommendCommand.builder().build();
+        BeanUtils.copyProperties(recommendInput, recommendCommand);
+        addOrigin.apply(recommendCommand, origin);
+        return recommendCommand;
     };
 
 }
