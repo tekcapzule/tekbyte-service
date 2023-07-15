@@ -65,6 +65,20 @@ Resources:
       ProvisionedThroughput:
         ReadCapacityUnits: 1
         WriteCapacityUnits: 1
+      GlobalSecondaryIndexes:
+        - IndexName: trendingGSI
+          KeySchema:
+            - AttributeName: status
+              KeyType: HASH
+            - AttributeName: recommendations
+              KeyType: RANGE
+          Projection:
+            ProjectionType: ALL
+          ProvisionedThroughput:
+            ReadCapacityUnits: 1
+            WriteCapacityUnits: 1
+
+
 
   RecommendTekbyteFunction:
     Type: AWS::Serverless::Function
