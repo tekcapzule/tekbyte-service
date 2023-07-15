@@ -112,9 +112,9 @@ public class TekbyteServiceImpl implements TekbyteService {
 
     @Override
     public void recommend(RecommendCommand recommendCommand) {
-        log.info(String.format("Entering recommend tekbyte service -  tekbyte Id:%s", recommendCommand.getTekbyteId()));
+        log.info(String.format("Entering recommend tekbyte service -  tekbyte code:%s", recommendCommand.getCode()));
 
-        Tekbyte tekbyte = tekbyteDynamoRepository.findBy(recommendCommand.getTekbyteId());
+        Tekbyte tekbyte = tekbyteDynamoRepository.findBy(recommendCommand.getCode());
         if (tekbyte != null) {
             Integer recommendationsCount = tekbyte.getRecommendations();
             recommendationsCount += 1;
