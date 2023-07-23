@@ -55,7 +55,7 @@ Resources:
     Properties:
       TableName: !Sub "${Stage}Tekbyte"
       AttributeDefinitions:
-        - AttributeName: code
+        - AttributeName: tekByteId
           AttributeType: S
         - AttributeName: topicCode
           AttributeType: S
