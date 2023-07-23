@@ -13,7 +13,6 @@ import java.util.List;
 public class UpdateInput {
     private String tekByteId;
     private String title;
-    private String topicCode;
     private String summary;
     private String description;
     private String imageUrl;

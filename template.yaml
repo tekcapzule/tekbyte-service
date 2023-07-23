@@ -242,10 +242,10 @@ Resources:
             RestApiId:
               Ref: TekbyteApi
 
-  SearchCapsuleByTopicFunction:
+  SearchTekbyteByTopicFunction:
     Type: AWS::Serverless::Function
     Properties:
-      FunctionName: !Sub "${Stage}-Tekbyte-SearchCapsuleByTopic"
+      FunctionName: !Sub "${Stage}-Tekbyte-SearchTekbyteByTopic"
       SnapStart:
         ApplyOn: PublishedVersions
       Policies:
