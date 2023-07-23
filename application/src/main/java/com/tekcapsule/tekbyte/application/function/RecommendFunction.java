@@ -41,7 +41,7 @@ public class RecommendFunction implements Function<Message<RecommendInput>, Mess
         String stage = appConfig.getStage().toUpperCase();
         try {
             RecommendInput recommendInput = recommendInputMessage.getPayload();
-            log.info(String.format("Entering recommend tekbyte Function -  Tekbyte Id:%s", recommendInput.getCode()));
+            log.info(String.format("Entering recommend tekbyte Function -  Tekbyte Id:%s", recommendInput.getTekByteId()));
             Origin origin = HeaderUtil.buildOriginFromHeaders(recommendInputMessage.getHeaders());
             RecommendCommand recommendCommand = InputOutputMapper.buildRecommendCommandFromRecommendInput.apply(recommendInput, origin);
             tekbyteService.recommend(recommendCommand);

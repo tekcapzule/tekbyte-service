@@ -16,6 +16,7 @@ public interface TekbyteService {
     void update(UpdateCommand updateCommand);
 
     void disable(DisableCommand disableCommand);
+    List<Tekbyte> findByTopic( String topicName);
 
     List<Tekbyte> findAll();
 

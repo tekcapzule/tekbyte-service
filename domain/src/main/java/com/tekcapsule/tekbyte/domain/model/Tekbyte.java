@@ -19,21 +19,18 @@ import java.util.List;
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Tekbyte extends BaseDomainEntity implements AggregateRoot {
-    @DynamoDBHashKey(attributeName="code")
-    private String code;
+    @DynamoDBHashKey(attributeName="tekByteId")
+    private String tekByteId;
     @DynamoDBAttribute(attributeName="title")
     private String title;
     @DynamoDBAttribute(attributeName="topicCode")
     private String topicCode;
-    @DynamoDBAttribute(attributeName="category")
-    private String category;
     @DynamoDBAttribute(attributeName = "summary")
     private String summary;
     @DynamoDBAttribute(attributeName = "description")
     private String description;
     @DynamoDBAttribute(attributeName = "imageUrl")
     private String imageUrl;
-
     @DynamoDBAttribute(attributeName = "illustrationUrl")
     private String illustrationUrl;
     @DynamoDBAttribute(attributeName = "aliases")

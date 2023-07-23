@@ -10,5 +10,5 @@ import lombok.Data;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
 public class RecommendCommand extends Command {
-    private String code;
+    private String tekByteId;
 }

@@ -40,8 +40,8 @@ public class GetFunction implements Function<Message<GetInput>, Message<Tekbyte>
 
         try {
             GetInput getInput = getInputMessage.getPayload();
-            log.info(String.format("Entering get tekbyte Function -Tekbyte Code:%s", getInput.getCode()));
-            tekbyte = tekbyteService.findBy(getInput.getCode());
+            log.info(String.format("Entering get tekbyte Function -Tekbyte ID:%s", getInput.getTekByteId()));
+            tekbyte = tekbyteService.findBy(getInput.getTekByteId());
             if (tekbyte == null) {
                 responseHeaders = HeaderUtil.populateResponseHeaders(responseHeaders, Stage.valueOf(stage), Outcome.NOT_FOUND);
                 tekbyte = Tekbyte.builder().build();

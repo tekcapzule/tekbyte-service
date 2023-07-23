@@ -15,7 +15,6 @@ public class CreateCommand extends Command {
     private String title;
     private String summary;
     private String topicCode;
-    private String category;
     private String description;
     private String imageUrl;
 

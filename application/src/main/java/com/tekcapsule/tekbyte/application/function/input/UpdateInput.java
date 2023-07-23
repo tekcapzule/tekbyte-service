@@ -11,8 +11,9 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @NoArgsConstructor
 public class UpdateInput {
-    private String code;
+    private String tekByteId;
     private String title;
+    private String topicCode;
     private String summary;
     private String description;
     private String imageUrl;

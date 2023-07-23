@@ -12,12 +12,12 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
 public class UpdateCommand extends Command {
-    private String code;
+    private String tekByteId;
     private String title;
     private String summary;
     private String description;
     private String imageUrl;
-
+    private String topicCode;
     private String illustrationUrl;
     private List<String> aliases;
     private GoldenCircle goldenCircle;

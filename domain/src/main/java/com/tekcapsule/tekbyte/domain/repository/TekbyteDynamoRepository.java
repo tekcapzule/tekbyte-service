@@ -8,6 +8,7 @@ import java.util.List;
 public interface TekbyteDynamoRepository extends CrudRepository<Tekbyte, String> {
 
     int getAllTekbytesCount();
+    List<Tekbyte> findAllByTopicCode(String topicCode);
 
 
 }
