@@ -64,7 +64,7 @@ Resources:
         - AttributeName: status
           AttributeType: S
       KeySchema:
-        - AttributeName: code
+        - AttributeName: tekByteId
           KeyType: HASH
       ProvisionedThroughput:
         ReadCapacityUnits: 1
