@@ -41,7 +41,7 @@ public class UpdateFunction implements Function<Message<UpdateInput>, Message<Vo
 
         try {
             UpdateInput updateInput = updateInputMessage.getPayload();
-            log.info(String.format("Entering update tekbyte Function - Tekbyte topic Code:%s", updateInput.getTopicCode()));
+            log.info(String.format("Entering update tekbyte Function - Tekbyte id:%s", updateInput.getTekByteId()));
             Origin origin = HeaderUtil.buildOriginFromHeaders(updateInputMessage.getHeaders());
             UpdateCommand updateCommand = InputOutputMapper.buildUpdateCommandFromUpdateInput.apply(updateInput, origin);
             tekbyteService.update(updateCommand);
