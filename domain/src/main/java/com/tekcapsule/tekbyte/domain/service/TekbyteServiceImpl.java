@@ -30,13 +30,12 @@ public class TekbyteServiceImpl implements TekbyteService {
         String id = UUID.randomUUID().toString();
 
         Tekbyte tekbyte = Tekbyte.builder()
-                .code(getCode(createCommand.getTopicCode(),createCommand.getCategory(),id))
+                .tekByteId(id)
                 .title(createCommand.getTitle())
                 .summary(createCommand.getSummary())
                 .description(createCommand.getDescription())
                 .imageUrl(createCommand.getImageUrl())
                 .topicCode(createCommand.getTopicCode())
-                .category(createCommand.getCategory())
                 .status("ACTIVE")
                 .aliases(createCommand.getAliases())
                 .goldenCircle(createCommand.getGoldenCircle())
@@ -59,16 +58,12 @@ public class TekbyteServiceImpl implements TekbyteService {
         tekbyteDynamoRepository.save(tekbyte);
     }
 
-    private String getCode(String topicCode, String category, String id) {
-        return topicCode + "-" + category + "-" + id;
-    }
-
     @Override
     public void update(UpdateCommand updateCommand) {
 
-        log.info(String.format("Entering update tekbyte service - Tekbyte id:%s", updateCommand.getCode()));
+        log.info(String.format("Entering update tekbyte service - Tekbyte id:%s", updateCommand.getTekByteId()));
 
-        Tekbyte tekbyte = tekbyteDynamoRepository.findBy(updateCommand.getCode());
+        Tekbyte tekbyte = tekbyteDynamoRepository.findBy(updateCommand.getTekByteId());
         if (tekbyte != null) {
             tekbyte.setTitle(updateCommand.getTitle());
             tekbyte.setStatus("ACTIVE");
@@ -98,10 +93,10 @@ public class TekbyteServiceImpl implements TekbyteService {
     @Override
     public void disable(DisableCommand disableCommand) {
 
-        log.info(String.format("Entering disable tekbyte service - Tekbyte Code:%s", disableCommand.getCode()));
+        log.info(String.format("Entering disable tekbyte service - Tekbyte ID:%s", disableCommand.getTekByteId()));
 
-        tekbyteDynamoRepository.findBy(disableCommand.getCode());
-        Tekbyte tekbyte = tekbyteDynamoRepository.findBy(disableCommand.getCode());
+        tekbyteDynamoRepository.findBy(disableCommand.getTekByteId());
+        Tekbyte tekbyte = tekbyteDynamoRepository.findBy(disableCommand.getTekByteId());
         if (tekbyte != null) {
             tekbyte.setStatus("INACTIVE");
             tekbyte.setUpdatedOn(disableCommand.getExecOn());
@@ -112,9 +107,9 @@ public class TekbyteServiceImpl implements TekbyteService {
 
     @Override
     public void recommend(RecommendCommand recommendCommand) {
-        log.info(String.format("Entering recommend tekbyte service -  tekbyte code:%s", recommendCommand.getCode()));
+        log.info(String.format("Entering recommend tekbyte service -  tekbyte ID:%s", recommendCommand.getTekByteId()));
 
-        Tekbyte tekbyte = tekbyteDynamoRepository.findBy(recommendCommand.getCode());
+        Tekbyte tekbyte = tekbyteDynamoRepository.findBy(recommendCommand.getTekByteId());
         if (tekbyte != null) {
             Integer recommendationsCount = tekbyte.getRecommendations();
             recommendationsCount += 1;
@@ -125,6 +120,13 @@ public class TekbyteServiceImpl implements TekbyteService {
 
             tekbyteDynamoRepository.save(tekbyte);
         }
+    }
+
+    @Override
+    public List<Tekbyte> findByTopic(String topicCode) {
+        log.info("Entering findBy topic service");
+
+        return tekbyteDynamoRepository.findAllByTopicCode(topicCode);
     }
 
     @Override

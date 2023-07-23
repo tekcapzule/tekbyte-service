@@ -5,7 +5,6 @@
   "required": [
     "code",
     "name",
-    "category",
     "description",
     "imageUrl",
     "aliases",
@@ -17,9 +16,6 @@
       "type": "string"
     },
     "name": {
-      "type": "string"
-    },
-    "category": {
       "type": "string"
     },
     "description": {

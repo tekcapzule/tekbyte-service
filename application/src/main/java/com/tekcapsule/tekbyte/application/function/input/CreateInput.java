@@ -13,7 +13,6 @@ import java.util.List;
 public class CreateInput {
     private String title;
     private String topicCode;
-    private String category;
     private String summary;
     private String description;
     private String imageUrl;

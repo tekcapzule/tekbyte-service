@@ -80,6 +80,17 @@ Resources:
             ReadCapacityUnits: 1
             WriteCapacityUnits: 1
 
+        - IndexName: topicGSI
+          KeySchema:
+            - AttributeName: status
+              KeyType: HASH
+            - AttributeName: topicCode
+              KeyType: RANGE
+          Projection:
+            ProjectionType: ALL
+          ProvisionedThroughput:
+            ReadCapacityUnits: 1
+            WriteCapacityUnits: 1
 
 
   RecommendTekbyteFunction:
@@ -227,6 +238,27 @@ Resources:
           Type: Api
           Properties:
             Path: tekbyte/getCount
+            Method: post
+            RestApiId:
+              Ref: TekbyteApi
+
+  SearchTekbyteByTopicFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub "${Stage}-Tekbyte-SearchTekbyteByTopic"
+      SnapStart:
+        ApplyOn: PublishedVersions
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref TekbyteTable
+      Environment:
+        Variables:
+          SPRING_CLOUD_FUNCTION_DEFINITION: searchByTopicFunction
+      Events:
+        ApiEvent:
+          Type: Api
+          Properties:
+            Path: tekbyte/searchByTopic
             Method: post
             RestApiId:
               Ref: TekbyteApi

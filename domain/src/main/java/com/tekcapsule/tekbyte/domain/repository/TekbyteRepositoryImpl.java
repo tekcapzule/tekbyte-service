@@ -18,6 +18,7 @@ import java.util.List;
 public class TekbyteRepositoryImpl implements TekbyteDynamoRepository {
 
     private DynamoDBMapper dynamo;
+    public static final String ACTIVE_STATUS = "ACTIVE";
 
     @Autowired
     public TekbyteRepositoryImpl(DynamoDBMapper dynamo) {
@@ -30,8 +31,29 @@ public class TekbyteRepositoryImpl implements TekbyteDynamoRepository {
     }
 
     @Override
-    public Tekbyte findBy(String code) {
-        return dynamo.load(Tekbyte.class, code);
+    public Tekbyte findBy(String tekByteId) {
+        return dynamo.load(Tekbyte.class, tekByteId);
+    }
+
+    @Override
+    public List<Tekbyte> findAllByTopicCode(String topicCode) {
+
+        HashMap<String, AttributeValue> expAttributes = new HashMap<>();
+        expAttributes.put(":status", new AttributeValue().withS(ACTIVE_STATUS));
+        expAttributes.put(":topicCode", new AttributeValue().withS(topicCode));
+
+        HashMap<String, String> expNames = new HashMap<>();
+        expNames.put("#status", "status");
+        expNames.put("#topicCode", "topicCode");
+
+        DynamoDBQueryExpression<Tekbyte> queryExpression = new DynamoDBQueryExpression<Tekbyte>()
+                .withIndexName("topicGSI").withConsistentRead(false)
+                .withKeyConditionExpression("#status = :status and #topicCode = :topicCode")
+                .withExpressionAttributeValues(expAttributes)
+                .withExpressionAttributeNames(expNames);
+
+        return dynamo.query(Tekbyte.class, queryExpression);
+
     }
 
     @Override

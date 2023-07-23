@@ -40,7 +40,7 @@ public class DisableFunction implements Function<Message<DisableInput>, Message<
         String stage = appConfig.getStage().toUpperCase();
         try {
             DisableInput disableInput = disableInputMessage.getPayload();
-            log.info(String.format("Entering disable tekbyte Function - Tekbyte Code:%s", disableInput.getCode()));
+            log.info(String.format("Entering disable tekbyte Function - Tekbyte ID:%s", disableInput.getTekByteId()));
             Origin origin = HeaderUtil.buildOriginFromHeaders(disableInputMessage.getHeaders());
             DisableCommand disableCommand = InputOutputMapper.buildDisableCommandFromDisableInput.apply(disableInput, origin);
             tekbyteService.disable(disableCommand);
