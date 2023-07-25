@@ -265,6 +265,29 @@ Resources:
             RestApiId:
               Ref: TekbyteApi
 
+  ApproveTekbyteFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub "${Stage}-Tekbyte-ApproveTekbyte"
+      SnapStart:
+        ApplyOn: PublishedVersions
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref TekbyteTable
+      Environment:
+        Variables:
+          SPRING_CLOUD_FUNCTION_DEFINITION: approveFunction
+      Events:
+        ApiEvent:
+          Type: Api
+          Properties:
+            Path: tekbyte/approve
+            Method: post
+            RestApiId:
+              Ref: TekbyteApi
+
+
+
   # Set Output Variable
 
 Outputs:

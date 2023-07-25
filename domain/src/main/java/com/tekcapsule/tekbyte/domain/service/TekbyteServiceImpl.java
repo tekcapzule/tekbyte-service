@@ -1,9 +1,7 @@
 package com.tekcapsule.tekbyte.domain.service;
 
-import com.tekcapsule.tekbyte.domain.command.CreateCommand;
-import com.tekcapsule.tekbyte.domain.command.DisableCommand;
-import com.tekcapsule.tekbyte.domain.command.RecommendCommand;
-import com.tekcapsule.tekbyte.domain.command.UpdateCommand;
+import com.tekcapsule.tekbyte.domain.command.*;
+import com.tekcapsule.tekbyte.domain.model.Status;
 import com.tekcapsule.tekbyte.domain.model.Tekbyte;
 import com.tekcapsule.tekbyte.domain.repository.TekbyteDynamoRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -36,7 +34,7 @@ public class TekbyteServiceImpl implements TekbyteService {
                 .description(createCommand.getDescription())
                 .imageUrl(createCommand.getImageUrl())
                 .topicCode(createCommand.getTopicCode())
-                .status("ACTIVE")
+                .status(Status.SUBMITTED)
                 .aliases(createCommand.getAliases())
                 .goldenCircle(createCommand.getGoldenCircle())
                 .keyConcepts(createCommand.getKeyConcepts())
@@ -66,7 +64,6 @@ public class TekbyteServiceImpl implements TekbyteService {
         Tekbyte tekbyte = tekbyteDynamoRepository.findBy(updateCommand.getTekByteId());
         if (tekbyte != null) {
             tekbyte.setTitle(updateCommand.getTitle());
-            tekbyte.setStatus("ACTIVE");
             tekbyte.setSummary(updateCommand.getSummary());
             tekbyte.setAliases(updateCommand.getAliases());
             tekbyte.setImageUrl(updateCommand.getImageUrl());
@@ -98,7 +95,7 @@ public class TekbyteServiceImpl implements TekbyteService {
         tekbyteDynamoRepository.findBy(disableCommand.getTekByteId());
         Tekbyte tekbyte = tekbyteDynamoRepository.findBy(disableCommand.getTekByteId());
         if (tekbyte != null) {
-            tekbyte.setStatus("INACTIVE");
+            tekbyte.setStatus(Status.INACTIVE);
             tekbyte.setUpdatedOn(disableCommand.getExecOn());
             tekbyte.setUpdatedBy(disableCommand.getExecBy().getUserId());
             tekbyteDynamoRepository.save(tekbyte);
@@ -117,6 +114,21 @@ public class TekbyteServiceImpl implements TekbyteService {
 
             tekbyte.setUpdatedOn(recommendCommand.getExecOn());
             tekbyte.setUpdatedBy(recommendCommand.getExecBy().getUserId());
+
+            tekbyteDynamoRepository.save(tekbyte);
+        }
+    }
+
+    @Override
+    public void approve(ApproveCommand approveCommand) {
+        log.info(String.format("Entering approve tekbyte service -  tekbyte Id:%s", approveCommand.getTekByteId()));
+
+        Tekbyte tekbyte = tekbyteDynamoRepository.findBy(approveCommand.getTekByteId());
+        if (tekbyte != null) {
+            tekbyte.setStatus(Status.ACTIVE);
+
+            tekbyte.setUpdatedOn(approveCommand.getExecOn());
+            tekbyte.setUpdatedBy(approveCommand.getExecBy().getUserId());
 
             tekbyteDynamoRepository.save(tekbyte);
         }

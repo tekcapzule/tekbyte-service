@@ -3,14 +3,8 @@ package com.tekcapsule.tekbyte.application.mapper;
 import com.tekcapsule.core.domain.Command;
 import com.tekcapsule.core.domain.ExecBy;
 import com.tekcapsule.core.domain.Origin;
-import com.tekcapsule.tekbyte.application.function.input.CreateInput;
-import com.tekcapsule.tekbyte.application.function.input.DisableInput;
-import com.tekcapsule.tekbyte.application.function.input.RecommendInput;
-import com.tekcapsule.tekbyte.application.function.input.UpdateInput;
-import com.tekcapsule.tekbyte.domain.command.CreateCommand;
-import com.tekcapsule.tekbyte.domain.command.DisableCommand;
-import com.tekcapsule.tekbyte.domain.command.RecommendCommand;
-import com.tekcapsule.tekbyte.domain.command.UpdateCommand;
+import com.tekcapsule.tekbyte.application.function.input.*;
+import com.tekcapsule.tekbyte.domain.command.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 
@@ -58,6 +52,13 @@ public final class InputOutputMapper {
         BeanUtils.copyProperties(recommendInput, recommendCommand);
         addOrigin.apply(recommendCommand, origin);
         return recommendCommand;
+    };
+
+    public static final BiFunction<ApproveTekbyteInput, Origin, ApproveCommand> buildApproveCommandFromApproveTekbyteInput = (approveTekbyteInput, origin) -> {
+        ApproveCommand approveCommand =  ApproveCommand.builder().build();
+        BeanUtils.copyProperties(approveTekbyteInput, approveCommand);
+        addOrigin.apply(approveCommand, origin);
+        return approveCommand;
     };
 
 }
