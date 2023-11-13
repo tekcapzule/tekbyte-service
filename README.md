@@ -1,12 +1,12 @@
 <!-- PROJECT SHIELDS -->
 <a name="readme-top"></a>
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-[![Main Branch](https://github.com/tekcapsule/tekbyte-service/actions/workflows/cicd.yml/badge.svg)](https://github.com/tekcapsule/tekbyte-service/actions/workflows/cicd.yml) 
-[![SonarCloud Bugs](https://sonarcloud.io/api/project_badges/measure?project=tekcapsule_topic-service&metric=bugs)](https://sonarcloud.io/project/overview?id=tekcapsule_tekbyte-service)
-[![SonarCloud Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=tekcapsule_topic-service&metric=vulnerabilities)](https://sonarcloud.io/project/overview?id=tekcapsule_tekbyte-service)
-[![SonarCloud Code Smell](https://sonarcloud.io/api/project_badges/measure?project=tekcapsule_topic-service&metric=code_smells)](https://sonarcloud.io/project/overview?id=tekcapsule_tekbyte-service)
-[![SonarCloud Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=tekcapsule_topic-service&metric=ncloc)](https://sonarcloud.io/project/overview?id=tekcapsule_tekbyte-service)
-[![Github all releases](https://img.shields.io/github/downloads/tekcapsule/tekbyte-service/total.svg)](https://GitHub.com/tekcapsule/tekbyte-service/releases/)
+[![Main Branch](https://github.com/tekcapzule/tekbyte-service/actions/workflows/cicd.yml/badge.svg)](https://github.com/tekcapzule/tekbyte-service/actions/workflows/cicd.yml) 
+[![SonarCloud Bugs](https://sonarcloud.io/api/project_badges/measure?project=tekcapzule_topic-service&metric=bugs)](https://sonarcloud.io/project/overview?id=tekcapzule_tekbyte-service)
+[![SonarCloud Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=tekcapzule_topic-service&metric=vulnerabilities)](https://sonarcloud.io/project/overview?id=tekcapzule_tekbyte-service)
+[![SonarCloud Code Smell](https://sonarcloud.io/api/project_badges/measure?project=tekcapzule_topic-service&metric=code_smells)](https://sonarcloud.io/project/overview?id=tekcapzule_tekbyte-service)
+[![SonarCloud Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=tekcapzule_topic-service&metric=ncloc)](https://sonarcloud.io/project/overview?id=tekcapzule_tekbyte-service)
+[![Github all releases](https://img.shields.io/github/downloads/tekcapzule/tekbyte-service/total.svg)](https://GitHub.com/tekcapzule/tekbyte-service/releases/)
 
 
 <!-- PROJECT LOGO -->
@@ -15,11 +15,11 @@
   <img src="https://user-images.githubusercontent.com/9839481/209770761-99fd940f-3c75-407b-a339-9fd2cd2c5b7f.svg">
   <h3 align="center">Tekbyte Service</h3>
   <p align="center">
-    A set of lambda functions to manage TekBytes in TekCapsule
+    A set of lambda functions to manage TekBytes in TekCapzule
     <br />
-    <a href="https://www.tekcapsule.com/">View Demo</a> |
-    <a href="https://github.com/tekcapsule/tekbyte-service/issues">Report Bug</a> |
-    <a href="https://github.com/tekcapsule/tekbyte-service/issues">Request Feature</a>
+    <a href="https://www.tekcapzule.com/">View Demo</a> |
+    <a href="https://github.com/tekcapzule/tekbyte-service/issues">Report Bug</a> |
+    <a href="https://github.com/tekcapzule/tekbyte-service/issues">Request Feature</a>
   </p>
 </div>
 <div align="center">
@@ -88,7 +88,7 @@ Please follow the step by step instructions to install the required softwares an
 1. Get the AWS Access Key details
 2. Clone the repo
    ```sh
-   git clone https://github.com/tekcapsule/tekbyte-service.git
+   git clone https://github.com/tekcapzule/tekbyte-service.git
    ```
 3. Install SAM CLI by following instructions https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/install-sam-cli.html
 4. Configure the following Environment variables
@@ -114,7 +114,7 @@ Note: SERVER_USERNAME and SERVER_PASSWORD details will be be provided by the mai
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/tekcapsule/tekbyte-service/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/tekcapzule/tekbyte-service/issues) for a list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -133,7 +133,7 @@ Don't forget to give the project a star! Thanks again!
 5. Open a Pull Request
 
 ## Contributors
-<img src= "https://contrib.rocks/image?repo=tekcapsule/tekbyte-service">
+<img src= "https://contrib.rocks/image?repo=tekcapzule/tekbyte-service">
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

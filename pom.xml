@@ -2,14 +2,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.tekcapsule</groupId>
+    <groupId>com.tekcapzule</groupId>
     <artifactId>tekbyte-application</artifactId>
-    <version>2.3.5</version>
+    <version>2.3.6</version>
     <packaging>pom</packaging>
     <name>TekByte Application</name>
     <description>Tekbyte Application</description>
     <properties>
-        <sonar.organization>tekcapsule</sonar.organization>
+        <sonar.organization>tekcapzule</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     </properties>
     <modules>
@@ -29,8 +29,8 @@
    <distributionManagement>
         <repository>
             <id>tekbyte</id>
-            <name>GitHub TekCapsule Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/tekcapsule/tekbyte-service</url>
+            <name>GitHub TekCapzule Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/tekcapzule/tekbyte-service</url>
         </repository>
     </distributionManagement>
 </project>
